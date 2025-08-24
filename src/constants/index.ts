@@ -143,7 +143,6 @@ export const projects: Project[] = [
 ];
 
 export const socials: SocialLink[] = [
-  { name: "Instagram", href: "/" },
+  { name: "Instagram", href: "https://www.instagram.com/_stilwerk/?hl=en" },
   { name: "LinkedIn", href: "/" },
-  { name: "GitHub", href: "/" },
 ];

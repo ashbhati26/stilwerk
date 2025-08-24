@@ -46,9 +46,12 @@ const Contact: React.FC = () => {
             <div className="social-link">
               <h2>E-mail</h2>
               <div className="w-full h-px my-2 bg-white/30" />
-              <p className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl">
-                JohnDoe@gmail.com
-              </p>
+              <a
+                href="mailto:hello@stilwerk.in"
+                className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl hover:text-white/80 transition-colors duration-200"
+              >
+                hello@stilwerk.in
+              </a>
             </div>
 
             <div className="social-link">
@@ -73,7 +76,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };
