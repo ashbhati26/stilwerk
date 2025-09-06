@@ -10,6 +10,7 @@ import Works from "./sections/Work";
 import ContactSummary from "./sections/ContactSummary";
 import Contact from "./sections/Contact";
 import { useProgress } from "@react-three/drei";
+import Pricing from "./sections/Pricing";
 
 const App: React.FC = () => {
   const { progress } = useProgress() as { progress: number };
@@ -47,6 +48,7 @@ const App: React.FC = () => {
         <Services />
         <About />
         <Works />
+        <Pricing />
         <ContactSummary />
         <Contact />
       </div>
