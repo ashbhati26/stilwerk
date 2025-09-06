@@ -138,7 +138,7 @@ export default function Pricing() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 text-sm md:text-lg uppercase tracking-[0.2rem] hover:shadow-2xl transition-all duration-200 rounded-full bg-black text-white hover:text-gray-100 font-medium focus:outline-none text-center"
+                  className="w-full px-2 py-4 text-sm md:text-lg uppercase tracking-[0.2rem] hover:shadow-2xl transition-all duration-200 rounded-full bg-black text-white hover:text-gray-100 font-medium focus:outline-none text-center"
                 >
                   Book for Consultation
                 </a>
