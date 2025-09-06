@@ -111,11 +111,11 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    name: "Urban Store",
+    name: "Shyam Shoes",
     description:
-      "A modern landing page for a clothing brand specializing in jackets and streetwear layers. Built as a SaaS-style product page with a sleek design and call-to-action focus.",
-    href: "https://urban-frontend-eta.vercel.app/",
-    image: "/assets/projects/urban-store.png",
+      "An e-commerce platform for a shoe store, featuring a user-friendly interface, product browsing, and a seamless shopping experience with modern design elements.",
+    href: "https://shyamshoes.com",
+    image: "/assets/projects/shyam-shoes.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "React.js" },

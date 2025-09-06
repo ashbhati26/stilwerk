@@ -12,7 +12,6 @@ import Contact from "./sections/Contact";
 import { useProgress } from "@react-three/drei";
 
 const App: React.FC = () => {
-  // Some setups of @react-three/drei infer this automatically; the cast keeps TS happy if not.
   const { progress } = useProgress() as { progress: number };
   const [isReady, setIsReady] = useState<boolean>(false);
 
