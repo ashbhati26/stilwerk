@@ -19,7 +19,7 @@ const plans: Plan[] = [
   {
     id: "basic",
     title: "Basic",
-    price: "₹25,000",
+    price: "₹19,999",
     frequency: "one-time",
     highlights: ["Animated Frontend", "Admin Panel"],
     features: [
@@ -34,7 +34,7 @@ const plans: Plan[] = [
   {
     id: "fullstack",
     title: "Full Stack",
-    price: "₹50,000",
+    price: "₹39,999",
     frequency: "one-time",
     highlights: ["Auth System", "Database"],
     features: [
@@ -50,7 +50,7 @@ const plans: Plan[] = [
   {
     id: "scalable",
     title: "Scalable",
-    price: "₹70,000",
+    price: "₹59,999",
     frequency: "one-time",
     highlights: ["Payments", "Advanced Dashboard"],
     features: [
