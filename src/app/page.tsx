@@ -6,11 +6,9 @@ import ServiceSummary from "./sections/ServiceSummary";
 import Services from "./sections/Services";
 import ReactLenis from "lenis/react";
 import About from "./sections/About";
-import Works from "./sections/Work";
 import ContactSummary from "./sections/ContactSummary";
 import Contact from "./sections/Contact";
 import { useProgress } from "@react-three/drei";
-import Pricing from "./sections/Pricing";
 
 const App: React.FC = () => {
   const { progress } = useProgress() as { progress: number };
@@ -47,8 +45,6 @@ const App: React.FC = () => {
         <ServiceSummary />
         <Services />
         <About />
-        <Works />
-        <Pricing />
         <ContactSummary />
         <Contact />
       </div>
