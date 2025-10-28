@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef, useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
@@ -6,6 +7,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import Link from "next/link";
+import Contact from "../sections/Contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -200,6 +202,7 @@ const Works: React.FC = () => {
           
         </div>
       </div>
+      <Contact/>
     </section>
   );
 };
