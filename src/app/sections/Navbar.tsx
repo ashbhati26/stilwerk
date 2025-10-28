@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { socials } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -99,9 +99,13 @@ const Navbar: React.FC = () => {
         <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
           {["home", "services", "about", "pricing", "work", "contact"].map(
             (section, index) => (
-              <div key={index} ref={(el) => (linksRef.current[index] = el)}>
+              <div
+                key={index}
+                ref={(el) => {
+                  linksRef.current[index] = el;
+                }}
+              >
                 {section === "pricing" ? (
-                  // ✅ Internal navigation (same tab)
                   <a
                     href="/pricing"
                     className="transition-all duration-300 cursor-pointer hover:text-white"
@@ -109,7 +113,6 @@ const Navbar: React.FC = () => {
                     Pricing
                   </a>
                 ) : section === "work" ? (
-                  // ✅ Internal navigation (same tab)
                   <a
                     href="/work"
                     className="transition-all duration-300 cursor-pointer hover:text-white"
@@ -117,7 +120,6 @@ const Navbar: React.FC = () => {
                     Work
                   </a>
                 ) : (
-                  // ✅ Smooth scroll for internal sections
                   <Link
                     className="transition-all duration-300 cursor-pointer hover:text-white"
                     to={section}
