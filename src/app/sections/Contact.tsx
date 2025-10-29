@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useGSAP } from "@gsap/react";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";

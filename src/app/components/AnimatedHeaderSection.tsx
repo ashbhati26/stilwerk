@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from "react";
 import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
