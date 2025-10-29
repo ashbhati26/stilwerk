@@ -51,7 +51,7 @@ const ServiceSummary: React.FC = () => {
         className="flex items-center justify-center gap-3 translate-x-16"
       >
         <p className="font-normal">Development</p>
-        <div className="w-10 h-1 md:w-32 bg-gold" />
+        <div className="w-10 h-1 md:w-32 bg-[#ff758f]" />
         <p>Deployment</p>
       </div>
 
@@ -60,9 +60,9 @@ const ServiceSummary: React.FC = () => {
         className="flex items-center justify-center gap-3 -translate-x-48"
       >
         <p>APIs</p>
-        <div className="w-10 h-1 md:w-32 bg-gold" />
+        <div className="w-10 h-1 md:w-32 bg-[#ff758f]" />
         <p className="italic">Frontends</p>
-        <div className="w-10 h-1 md:w-32 bg-gold" />
+        <div className="w-10 h-1 md:w-32 bg-[#ff758f]" />
         <p>Scalability</p>
       </div>
 

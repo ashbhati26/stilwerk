@@ -1,9 +1,12 @@
+"use client";
+
 import React, { useRef, useState } from "react";
 import { socials } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import NextLink from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,45 +97,50 @@ const Navbar: React.FC = () => {
       {/* Main Nav Menu */}
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 z-50 flex flex-col justify-between w-full h-screen px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2 overflow-y-scroll no-scrollbar"
+        className="fixed top-0 left-0 z-50 flex flex-col justify-between w-full h-screen px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
       >
         <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
-          {["home", "services", "about", "pricing", "work", "contact"].map(
-            (section, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  linksRef.current[index] = el;
-                }}
-              >
-                {section === "pricing" ? (
-                  <a
-                    href="/pricing"
-                    className="transition-all duration-300 cursor-pointer hover:text-white"
-                  >
-                    Pricing
-                  </a>
-                ) : section === "work" ? (
-                  <a
-                    href="/work"
-                    className="transition-all duration-300 cursor-pointer hover:text-white"
-                  >
-                    Work
-                  </a>
-                ) : (
-                  <Link
-                    className="transition-all duration-300 cursor-pointer hover:text-white"
-                    to={section}
-                    smooth
-                    offset={0}
-                    duration={2000}
-                  >
-                    {section}
-                  </Link>
-                )}
-              </div>
-            )
-          )}
+          {["home", "pricing", "work", "contact"].map((section, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                linksRef.current[index] = el;
+              }}
+            >
+              { section === "home" ? (
+                <NextLink
+                  href="/"
+                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                >
+                  Home
+                </NextLink>
+              ) : section === "pricing" ? (
+                <NextLink
+                  href="/pricing"
+                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                >
+                  Pricing
+                </NextLink>
+              ) : section === "work" ? (
+                <NextLink
+                  href="/work"
+                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                >
+                  Work
+                </NextLink>
+              ) : (
+                <ScrollLink
+                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                  to={section}
+                  smooth
+                  offset={0}
+                  duration={2000}
+                >
+                  {section}
+                </ScrollLink>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Contact & Socials */}
@@ -151,17 +159,16 @@ const Navbar: React.FC = () => {
             <p className="tracking-wider text-white/50">Social Media</p>
             <div className="flex flex-col flex-wrap md:flex-row gap-x-2">
               {socials.map((social, index) => (
-                <a
+                <NextLink
                   key={index}
                   href={social.href}
                   className="text-sm leading-loose tracking-widest uppercase hover:text-white transition-colors duration-300"
                   target="_blank"
-                  rel="noreferrer"
                 >
                   {"{ "}
                   {social.name}
                   {" }"}
-                </a>
+                </NextLink>
               ))}
             </div>
           </div>

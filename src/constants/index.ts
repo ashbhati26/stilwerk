@@ -22,6 +22,7 @@ export type Project = {
   image: string;
   bgImage: string;
   frameworks: Framework[];
+  categories?: string[];
 };
 
 export type SocialLink = {
@@ -108,6 +109,7 @@ export const projects: Project[] = [
       { id: 4, name: "Clerk" },
       { id: 5, name: "Tailwind CSS" },
     ],
+    categories: ["Development"],
   },
   {
     id: 2,
@@ -124,6 +126,7 @@ export const projects: Project[] = [
       { id: 4, name: "MongoDB" },
       { id: 5, name: "Tailwind CSS" },
     ],
+    categories: ["Development"]
   },
   {
     id: 3,
@@ -139,6 +142,7 @@ export const projects: Project[] = [
       { id: 3, name: "SQL Server" },
       { id: 4, name: "Tailwind CSS" },
     ],
+    categories: ["Design"],
   },
 ];
 

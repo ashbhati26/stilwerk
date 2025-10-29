@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Contact from "./sections/Contact";
+import Navbar from "./components/Navbar";
+import PageTransition from "./components/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Stilwerk - Design with Purpose",
-  description: "A design-led web studio crafting premium, interactive experiences that move people and metrics.",
+  description:
+    "A design-led web studio crafting premium, interactive experiences that move people and metrics.",
 };
 
 export default function RootLayout({
@@ -27,7 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <PageTransition>
+          <Navbar />
+          {children}
+          <Contact />
+        </PageTransition>
       </body>
     </html>
   );

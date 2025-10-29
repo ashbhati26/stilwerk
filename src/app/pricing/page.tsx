@@ -1,7 +1,8 @@
-"use client"
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
-import Contact from "../sections/Contact";
 
 export type Feature = {
   title: string;
@@ -84,11 +85,19 @@ export default function Pricing() {
 
       <div className="px-6 md:px-12 lg:px-24 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {plans.map((plan) => (
-            <article
+          {plans.map((plan, i) => (
+            <motion.article
               key={plan.id}
-              className={`relative flex flex-col justify-between rounded-2xl p-10 border shadow-sm hover:shadow-lg transition-all`}
               aria-labelledby={`plan-${plan.id}`}
+              className={`relative flex flex-col justify-between rounded-2xl p-10 border shadow-sm hover:shadow-lg transition-all`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.75,
+                delay: i * 0.12,
+                ease: "easeInOut",
+              }}
             >
               {plan.recommended && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-full text-xs">
@@ -145,11 +154,10 @@ export default function Pricing() {
                   Book for Consultation
                 </a>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
-      <Contact/>
     </section>
   );
 }

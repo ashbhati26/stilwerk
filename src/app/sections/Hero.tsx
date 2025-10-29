@@ -8,8 +8,7 @@ import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 const Hero: React.FC = () => {
   const isMobile: boolean = useMediaQuery({ maxWidth: 853 });
 
-  const text =
-    `Your brand deserves more than a website—it 
+  const text = `Your brand deserves more than a website—it 
     deserves an experience. We craft premium, high-performing 
     products to help you grow faster.`;
 
@@ -27,19 +26,52 @@ const Hero: React.FC = () => {
       >
         <Canvas
           shadows
-          camera={{ position: [0, 0, -10] as [number, number, number], fov: 17.5, near: 1, far: 20 }}
+          camera={{
+            position: [0, 0, -10] as [number, number, number],
+            fov: 17.5,
+            near: 1,
+            far: 20,
+          }}
         >
           <ambientLight intensity={0.5} />
           <Float speed={0.5}>
-            <Planet scale={isMobile ? 0.7 : 1} />
+            <Planet
+              scale={isMobile ? 0.7 : 1}
+              ringColor="#ff758f"
+              ballColor="#ff758f"
+              tintStrength={0.2}
+              metalness={0.95}
+              roughness={0.25}
+              envMapIntensity={1.3}
+            />
           </Float>
 
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>
-              <Lightformer form="circle" intensity={2} position={[0, 5, -9]} scale={10} />
-              <Lightformer form="circle" intensity={2} position={[0, 3, 1]} scale={10} />
-              <Lightformer form="circle" intensity={2} position={[-5, -1, -1]} scale={10} />
-              <Lightformer form="circle" intensity={2} position={[10, 1, 0]} scale={16} />
+              <Lightformer
+                form="circle"
+                intensity={2}
+                position={[0, 5, -9]}
+                scale={10}
+              />
+              <Lightformer
+                form="circle"
+                intensity={2}
+                position={[0, 3, 1]}
+                scale={10}
+              />
+              <Lightformer
+                form="circle"
+                intensity={2}
+                position={[-5, -1, -1]}
+                scale={10}
+              />
+              <Lightformer
+                form="circle"
+                intensity={2}
+                position={[10, 1, 0]}
+                scale={16}
+              />
             </group>
           </Environment>
         </Canvas>
