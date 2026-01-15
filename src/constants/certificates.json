@@ -1,0 +1,20 @@
+[
+  {
+    "certificateNo": "INT2024011",
+    "name": "Ashish Bhati",
+    "course": " Full Stack Intern (Remote)",
+    "duration": "Oct 2025 - Dec 2025"
+  },
+  {
+    "certificateNo": "INT2023009",
+    "name": "Pragya Maheshwari",
+    "course": " Frontend Developer Intern (Remote)",
+    "duration": "Nov 2025 - Jan 2026"
+  },
+  {
+    "certificateNo": "INT2024003",
+    "name": "Aman Verma",
+    "course": "Backend Development Internship",
+    "duration": "Mar 2024 - May 2024"
+  }
+]
