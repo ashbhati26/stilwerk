@@ -8,50 +8,50 @@ type PageTransitionProps = {
   children: React.ReactNode;
   className?: string;
   duration?: number;
-  offsetY?: number;
 };
 
 export default function PageTransition({
   children,
   className = "w-full h-full",
   duration = 0.45,
-  offsetY = 20,
 }: PageTransitionProps) {
   const pathname = usePathname();
 
+  /* Content ONLY lifts up — never down */
   const contentVariants = {
-    initial: { opacity: 0, y: offsetY, scale: 0.995 },
-    animate: { opacity: 1, y: 0, scale: 1 },
-    exit: { opacity: 0, y: -offsetY, scale: 0.995 },
+    initial: { opacity: 0, y: 8 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0 },
   };
-
-  const transition = { duration, ease: "easeInOut" } as const;
 
   return (
     <div className="relative overflow-hidden">
-      {/* Black curtain animation */}
+      {/* Black flash / curtain */}
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname + "-curtain"}
-          initial={{ y: "-100%" }}
-          animate={{ y: ["-100%", "0%", "-100%"] }}
+          initial={{ y: "100%" }}
+          animate={{ y: ["100%", "0%", "-100%"] }}
           transition={{
-            duration: 1.8,
-            ease: "easeInOut",
+            duration: 0.9,
+            ease: [0.77, 0, 0.175, 1], // smooth premium curve
           }}
-          className="fixed top-0 left-0 w-full h-full bg-black z-[9999] pointer-events-none"
+          className="fixed inset-0 bg-black z-[9999] pointer-events-none"
         />
       </AnimatePresence>
 
-      {/* Page content transition */}
+      {/* Page content */}
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname ?? "__fallback__"}
+          variants={contentVariants}
           initial="initial"
           animate="animate"
           exit="exit"
-          variants={contentVariants}
-          transition={transition}
+          transition={{
+            duration,
+            ease: "easeOut",
+          }}
           className={className}
         >
           {children}
