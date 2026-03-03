@@ -13,6 +13,28 @@ export default function DesignPackagePage() {
     return <div className="p-10">Design package not found</div>;
   }
 
+  const handlePurchase = async () => {
+    if (!selectedPackage) return;
+    try {
+      const res = await fetch("/api/create-payment-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ packageId: selectedPackage.id }),
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.open(data.url, "_blank");
+      } else {
+        alert("Failed to start payment. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section className="min-h-screen px-6 text-black">
       <AnimatedHeaderSection
@@ -48,14 +70,12 @@ export default function DesignPackagePage() {
             One-time payment. Includes free future updates.
           </p>
 
-          <a
-            href={selectedPackage.razorpayLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handlePurchase}
             className="mt-8 block w-full rounded-full bg-black py-3 text-center text-sm font-medium text-white hover:bg-black/90 transition"
           >
             Purchase Package
-          </a>
+          </button>
 
           <ul className="mt-8 space-y-3 text-sm text-black/80">
             <li>✓ {selectedPackage.includes.templates} Templates</li>
