@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import certificates from "@/constants/certificates.json";
+import certificates from "../../constants/certificates.json";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { motion, AnimatePresence } from "framer-motion";
 
